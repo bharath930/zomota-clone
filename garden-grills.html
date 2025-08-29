@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Garden Grills - Menu & Prices</title>
+  <link rel="stylesheet" href="fooddelivery.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .restaurant-header {
+      height: 300px;
+      background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/c6/2d/7b/inside-area.jpg') center/cover;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .restaurant-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    }
+
+    .restaurant-info {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    .restaurant-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .menu-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .menu-category {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .menu-category h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .menu-item-info {
+      padding: 15px;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .menu-item-name {
+      font-size: 1.2rem;
+      color: white;
+      margin: 0;
+    }
+
+    .menu-item-price {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .menu-item-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .order-button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .order-button:hover {
+      background: var(--primary-hover);
+    }
+
+    .restaurant-details {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <label for="hamburger" class="hamburger-icon">☰</label>
+      <div class="logo">Foodie</div>
+      <ul class="nav-links">
+        <li><a href="food delivery websitee.html">Home</a></li>
+        <li><a href="bangalore.html">Back to Bangalore</a></li>
+        <li><a href="#login-popup">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="restaurant-header">
+    <div class="restaurant-info">
+      <h1>Garden Grills</h1>
+      <div class="restaurant-details">
+        <div class="detail-item">
+          <i class="fas fa-star"></i>
+          <span>4.2 Rating</span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <span>40-50 mins delivery</span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-motorcycle"></i>
+          <span>Free Delivery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="menu-section">
+    <div class="menu-category">
+      <h2>Grilled Starters</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTK0e4smlezBYLbKSaprFr_sExibCtwN2UGw&s" alt="Grilled Mushrooms">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Herb Grilled Mushrooms</h3>
+              <span class="menu-item-price">₹249</span>
+            </div>
+            <p class="menu-item-description">Fresh mushrooms grilled with herbs and garlic butter</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="https://images.getrecipekit.com/v1624462450_g3ytd8lgsmo3uoaytsnt.jpg?aspect_ratio=16:9&quality=90&" alt="Grilled Corn">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Spicy Grilled Corn</h3>
+              <span class="menu-item-price">₹179</span>
+            </div>
+            <p class="menu-item-description">Corn on the cob grilled with spices and lime butter</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>Main Course</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/Mediterranean-Turkey-Panini_EXPS_CHMZ19_124446_B10_26_7b.jpg" alt="Grilled Panini">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Mediterranean Panini</h3>
+              <span class="menu-item-price">₹279</span>
+            </div>
+            <p class="menu-item-description">Grilled sandwich with roasted vegetables and pesto</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="https://cookingwithayeh.com/wp-content/uploads/2024/02/Tofu-Steak-SQ-5.jpg" alt="Grilled Tofu">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">BBQ Tofu Steak</h3>
+              <span class="menu-item-price">₹329</span>
+            </div>
+            <p class="menu-item-description">Grilled tofu steaks with BBQ sauce and grilled vegetables</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>Beverages</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="https://www.middleeasteye.net/sites/default/files/images-story/dsc_0035.jpg" alt="Mint Lemonade">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Fresh Mint Lemonade</h3>
+              <span class="menu-item-price">₹79</span>
+            </div>
+            <p class="menu-item-description">Refreshing lemonade with fresh mint leaves</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/watermelon-juice-2.jpg" alt="Watermelon Juice">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Fresh Watermelon Juice</h3>
+              <span class="menu-item-price">₹89</span>
+            </div>
+            <p class="menu-item-description">Freshly squeezed watermelon juice with mint</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

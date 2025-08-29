@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Foodie</title>
+    <link rel="stylesheet" href="fooddelivery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .settings-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .settings-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .settings-header h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .settings-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .settings-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .setting-item {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .setting-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .setting-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .theme-options, .language-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .theme-option, .language-option {
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .theme-option:hover, .language-option:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-option.active, .language-option.active {
+            border-color: var(--primary);
+            background: rgba(255, 94, 87, 0.1);
+        }
+
+        .save-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .save-button:hover {
+            background: var(--primary-hover);
+        }
+
+        .password-requirements {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 8px;
+        }
+
+        .location-search {
+            position: relative;
+        }
+
+        .location-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 6px;
+            margin-top: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .location-suggestion {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .location-suggestion:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .account-support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.account-option {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.account-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+}
+
+.account-option.logout {
+    color: #ff5e57;
+}
+
+.account-option.logout:hover {
+    background: rgba(255, 94, 87, 0.1);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <label for="hamburger" class="hamburger-icon">☰</label>
+            <div class="logo">Foodie</div>
+            <ul class="nav-links">
+                <li><a href="food delivery websitee.html">Home</a></li>
+                <li><a href="#login-popup">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1>Settings</h1>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-palette"></i> Theme</h2>
+            <div class="theme-options">
+                <div class="theme-option active">
+                    <i class="fas fa-sun"></i>
+                    <div class="setting-label">Light</div>
+                </div>
+                <div class="theme-option">
+                    <i class="fas fa-moon"></i>
+                    <div class="setting-label">Dark</div>
+                </div>
+                <div class="theme-option">
+                    <i class="fas fa-circle-half-stroke"></i>
+                    <div class="setting-label">System</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-globe"></i> Language</h2>
+            <div class="language-options">
+                <div class="language-option active">
+                    <div class="setting-label">English</div>
+                </div>
+                <div class="language-option">
+                    <div class="setting-label">हिंदी</div>
+                </div>
+                <div class="language-option">
+                    <div class="setting-label">తెలుగు</div>
+                </div>
+                <div class="language-option">
+                    <div class="setting-label">தமிழ்</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+            <div class="setting-item">
+                <div class="location-search">
+                    <input type="text" class="setting-input" placeholder="Search your location..." />
+                    <div class="location-suggestions" style="display: none;">
+                        <div class="location-suggestion">New Delhi, India</div>
+                        <div class="location-suggestion">Mumbai, Maharashtra</div>
+                        <div class="location-suggestion">Bangalore, Karnataka</div>
+                        <div class="location-suggestion">Hyderabad, Telangana</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2><i class="fas fa-lock"></i> Change Password</h2>
+            <div class="setting-item">
+                <label class="setting-label">Current Password</label>
+                <input type="password" class="setting-input" />
+            </div>
+            <div class="setting-item">
+                <label class="setting-label">New Password</label>
+                <input type="password" class="setting-input" />
+                <div class="password-requirements">
+                    Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.
+                </div>
+            </div>
+            <div class="setting-item">
+                <label class="setting-label">Confirm New Password</label>
+                <input type="password" class="setting-input" />
+            </div>
+        </div>
+
+        <button class="save-button">Save Changes</button>
+    </div>
+    <div class="settings-section">
+    <h2><i class="fas fa-user-cog"></i> Account & Support</h2>
+    <div class="account-support-options">
+        <div class="account-option"><i class="fas fa-box"></i> Your Orders</div>
+        <div class="account-option"><i class="fas fa-heart"></i> Wishlist</div>
+        <div class="account-option"><i class="fas fa-gift"></i> Rewards</div>
+        <div class="account-option"><i class="fas fa-undo"></i> Refunds</div>
+        <div class="account-option"><i class="fas fa-money-bill-wave"></i> Cashback</div>
+        <div class="account-option"><i class="fas fa-headset"></i> Help & Support</div>
+        <div class="account-option"><i class="fas fa-bug"></i> Report an Issue</div>
+        <div class="account-option logout"><i class="fas fa-sign-out-alt"></i> Logout</div>
+    </div>
+</div>
+
+
+
+    <script>
+        // Theme selection
+        const themeOptions = document.querySelectorAll('.theme-option');
+        themeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                themeOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Language selection
+        const languageOptions = document.querySelectorAll('.language-option');
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                languageOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Location search
+        const locationInput = document.querySelector('.location-search input');
+        const locationSuggestions = document.querySelector('.location-suggestions');
+
+        locationInput.addEventListener('focus', () => {
+            locationSuggestions.style.display = 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.location-search')) {
+                locationSuggestions.style.display = 'none';
+            }
+        });
+
+        const suggestions = document.querySelectorAll('.location-suggestion');
+        suggestions.forEach(suggestion => {
+            suggestion.addEventListener('click', () => {
+                locationInput.value = suggestion.textContent;
+                locationSuggestions.style.display = 'none';
+            });
+        });
+        document.querySelector('.account-option.logout').addEventListener('click', () => {
+    if (confirm('Are you sure you want to logout?')) {
+        // Add logout logic here
+        alert('Logged out successfully!');
+    }
+});
+
+    </script>
+</body>
+</html> 

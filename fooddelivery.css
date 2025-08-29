@@ -1,0 +1,479 @@
+/* ==== Variables ==== */
+:root {
+  --primary: #e15417da;
+  --primary-hover: #74f13e;
+  --text: #333;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --transition: 0.3s ease;
+  --sidebar-w: 280px;
+}
+
+/* ==== Base & Layout ==== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font: 16px/1.6 Arial, sans-serif;
+  min-height: 100vh;
+  color: white;
+  background: url("zomotobackground.webp") center/cover fixed;
+}
+
+
+
+.navbar, .footer-content, .city-list, .search-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+/* ==== Navigation & Header ==== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.437);
+
+}
+
+.logo, .footer-logo, .sidebar-logo {
+  color: var(--primary);
+  font: bold 24px Arial;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a, .footer-section a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover, .footer-section a:hover { color: var(--primary); }
+
+/* ==== Hero & Search ==== */
+.hero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  max-width: 900px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-bar button:hover { background: var(--primary-hover); }
+
+/* ==== City & Restaurant Cards ==== */
+.city-cards-wrapper, .restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.city-card {
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.city-card:hover { transform: scale(1.03); }
+
+
+
+.city-card h2 {
+  position: relative;
+  margin: 20px;
+  color: white;
+  z-index: 2;
+}
+
+/* ==== Restaurant Sections ==== */
+.restaurant-section { 
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.restaurant-section:target { display: block; }
+
+.restaurant-summary {
+  background: var(--bg-overlay);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.restaurant-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: fadeInUp 0.5s ease forwards;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card .img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition);
+}
+
+.restaurant-card:hover img {
+  transform: scale(1.05);
+}
+
+.restaurant-card .content {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.restaurant-card h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.restaurant-card p {
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.restaurant-card .rating {
+  color: #ffd700;
+  margin-top: auto;
+}
+
+/* ==== Hamburger Menu ==== */
+.hamburger-icon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.hamburger-input { display: none; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: calc(-1 * var(--sidebar-w));
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  transition: left var(--transition);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.hamburger-input:checked + .sidebar { left: 0; }
+
+.close-sidebar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text);
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-sidebar:hover {
+  background: #f0f0f0;
+  color: var(--primary);
+}
+
+.sidebar-content { padding: 20px; }
+
+.sidebar-menu {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.sidebar-menu a {
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background var(--transition);
+}
+
+.sidebar-menu a:hover {
+  background: #f5f5f5;
+  color: var(--primary);
+}
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-checkbox { display: none; }
+
+.slider {
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  margin-left: auto;
+  position: relative;
+  transition: background var(--transition);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--transition);
+}
+
+.theme-checkbox:checked + .slider {
+  background: var(--primary);
+}
+
+.theme-checkbox:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* ==== Login Popup ==== */
+.login-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  display: none;
+  place-items: center;
+  z-index: 1000;
+}
+
+.login-popup:target { display: grid; }
+
+.login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: min(400px, 90%);
+  position: relative;
+}
+
+.close-login {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.close-login:hover { color: var(--primary); }
+
+.login-section { display: none; }
+
+#login-section:target,
+.login-section:not(:target) + .login-section:not(:target) { display: block; }
+
+.login-section h2 {
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form, .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input, .signup-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-form button, .signup-form button {
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.login-form button:hover, .signup-form button:hover {
+  background: var(--primary-hover);
+}
+
+.social-login {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.social-login:hover { background: #f5f5f5; }
+
+.social-login img {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+/* ==== Footer ==== */
+.main-footer {
+  background: rgba(0, 0, 0, 0.437);
+  padding: 60px 20px 40px;
+  margin-top: 80px;
+}
+
+.footer-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.footer-section h4 {
+  color: var(--primary);
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.founder-info p {
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+  transition: color var(--transition), transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.contact-info i {
+  color: var(--primary);
+  width: 20px;
+}

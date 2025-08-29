@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paradise Flavors - Menu & Prices</title>
+  <link rel="stylesheet" href="fooddelivery.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .restaurant-header {
+      height: 300px;
+      background: url('https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/b0/paradise-food-court.jpg') center/cover;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .restaurant-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    }
+
+    .restaurant-info {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    .restaurant-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .menu-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .menu-category {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .menu-category h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .menu-item-info {
+      padding: 15px;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .menu-item-name {
+      font-size: 1.2rem;
+      color: white;
+      margin: 0;
+    }
+
+    .menu-item-price {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .menu-item-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .order-button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .order-button:hover {
+      background: var(--primary-hover);
+    }
+
+    .restaurant-details {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <label for="hamburger" class="hamburger-icon">☰</label>
+      <div class="logo">Foodie</div>
+      <ul class="nav-links">
+        <li><a href="food delivery websitee.html">Home</a></li>
+        <li><a href="hyderabad.html">Back to Hyderabad</a></li>
+        <li><a href="#login-popup">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hamburger Menu -->
+  <input type="checkbox" id="hamburger" class="hamburger-input">
+  <div class="sidebar">
+    <label for="hamburger" class="close-sidebar">&times;</label>
+    <div class="sidebar-content">
+      <a href="#" class="sidebar-logo">Foodie</a>
+      <ul class="sidebar-menu">
+        <li><a href="food delivery websitee.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="restaurant-header">
+    <div class="restaurant-info">
+      <h1>Paradise Flavors</h1>
+      <div class="restaurant-details">
+        <div class="detail-item">
+          <i class="fas fa-star"></i>
+          <span>4.5 Rating</span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <span>30-40 mins delivery</span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-motorcycle"></i>
+          <span>Free Delivery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="menu-section">
+    <div class="menu-category">
+      <h2>Starters</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg-7SkxaBwwHdFv5AzJlWNh_oa3Ssl2WkNqQ&s" alt="Paneer 65">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Paneer 65</h3>
+              <span class="menu-item-price">₹269</span>
+            </div>
+            <p class="menu-item-description">Spicy and crispy cottage cheese fritters</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="cornpakora.jpeg" alt="Pakora">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Corn Pakora</h3>
+              <span class="menu-item-price">₹179</span>
+            </div>
+            <p class="menu-item-description">Crispy corn fritters with Indian spices</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>Main Course</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="Paneer Butter Masal.jpeg" alt="Paneer Butter Masala">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Paneer Butter Masala</h3>
+              <span class="menu-item-price">₹299</span>
+            </div>
+            <p class="menu-item-description">Cottage cheese in rich tomato and butter gravy</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="vegkadai.jpeg" alt="Veg Kadai">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Veg Kadai</h3>
+              <span class="menu-item-price">₹249</span>
+            </div>
+            <p class="menu-item-description">Mixed vegetables in spicy kadai masala</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h2>Breads & Rice</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="butternan.jpeg" alt="Butter Naan">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Butter Naan</h3>
+              <span class="menu-item-price">₹59</span>
+            </div>
+            <p class="menu-item-description">Soft and fluffy bread with butter</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="jeerarice.jpeg" alt="Jeera Rice">
+          <div class="menu-item-info">
+            <div class="menu-item-header">
+              <h3 class="menu-item-name">Jeera Rice</h3>
+              <span class="menu-item-price">₹169</span>
+            </div>
+            <p class="menu-item-description">Basmati rice tempered with cumin seeds</p>
+            <button class="order-button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 
